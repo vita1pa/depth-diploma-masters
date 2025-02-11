@@ -1,0 +1,37 @@
+{
+    "latex-workshop.latex.tools": [
+        {
+            "name": "pdflatex",
+            "command": "pdflatex",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-output-directory=out",
+                "main.tex"
+            ]
+        },
+        {
+            "name": "xelatex",
+            "command": "xelatex",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-output-directory=out",
+                "main.tex"
+            ]
+        }
+    ],
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "Compile with XeLaTeX",
+            "tools": ["xelatex"]
+        },
+        {
+            "name": "Compile with pdfLaTeX",
+            "tools": ["pdflatex"]
+        }
+    ],
+    "latex-workshop.view.pdf.viewer": "tab",
+    "latex-workshop.linting.chktex.enabled": true,
+    "latex-workshop.message.error.show": true,
+}

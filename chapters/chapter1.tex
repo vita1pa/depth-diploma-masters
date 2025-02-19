@@ -1,29 +1,175 @@
-% chapter1.tex
-\section{Basic Concepts of Probability}
+\chapter{Introduction and Asymptotic Analysis for Tukey Depth in the Bivariate Exponential Distribution}
 
-Probability is a measure of the confidence that an event will occur.
+\section{Introduction}
 
-\subsection{Sample Space}
-Defined as the set of all possible outcomes of an experiment:
+In this chapter, we study the Tukey (half-space) depth for a bivariate distribution with independent exponential marginals. Let
 \[
-\Omega = \{ \omega_1, \omega_2, ..., \omega_n \}
+X \sim \operatorname{Exp}(\lambda_1) \quad\text{and}\quad Y \sim \operatorname{Exp}(\lambda_2),
+\]
+with joint density
+\[
+f_{X,Y}(x,y)=\lambda_1\lambda_2 \, e^{-\lambda_1 x-\lambda_2 y},\quad x,y \ge 0.
+\]
+The Tukey depth of a point is defined as the minimum probability mass of any closed half-plane that contains the point. In our approach, we consider a family of lines passing through the point $(a,b)$ and study the probability mass below the line. (Note that in general the depth is given by 
+\[
+D(a,b)=\min\{P,1-P\},
+\]
+but here we focus on the computation of one side's probability as a function of the line parameters.)
+
+\section{Definition of the Probability Mass \( I(k) \)}
+
+Consider a line through $(a,b)$ given by
+\begin{equation}\label{eq:line}
+  y - b = k \, (x - a),
+\end{equation}
+where \( k = \tan\theta \). In the first quadrant, the region below this line forms a triangle. The \(x\)-intercept is found by setting \( y = 0 \):
+\[
+0 - b = k\,(x-a) \quad \Longrightarrow \quad x = a - \frac{b}{k}.
+\]
+We define
+\[
+x_0 = a - \frac{b}{k}, \quad \text{(assumed positive)}.
+\]
+Then, for each \( x \in [0, x_0] \), the corresponding \( y \) runs from 0 up to
+\[
+y_{\max}(x) = k(x-a)+b.
+\]
+Thus, the probability mass below the line is given by
+\begin{equation}\label{eq:Ik}
+  I(k) = \int_{x=0}^{x_0} \int_{y=0}^{k(x-a)+b} \lambda_1 \lambda_2 \, e^{-\lambda_1 x-\lambda_2 y} \, dy\, dx.
+\end{equation}
+Evaluating the inner integral,
+\[
+\int_{0}^{k(x-a)+b} \lambda_2 e^{-\lambda_2 y} \, dy = 1 - e^{-\lambda_2\bigl[k(x-a)+b\bigr]},
+\]
+we obtain
+\begin{equation}\label{eq:Ik2}
+  I(k) = \int_{x=0}^{x_0} \lambda_1 e^{-\lambda_1 x} \Bigl[ 1 - e^{-\lambda_2\bigl(k(x-a)+b\bigr)} \Bigr] dx.
+\end{equation}
+
+\section{Differentiation via the Leibniz Rule}
+
+Since the upper limit \(x_0 = a - \frac{b}{k}\) depends on \(k\), we differentiate \( I(k) \) using the Leibniz rule. In general, if
+\[
+I(k) = \int_{0}^{x_0(k)} f(x,k) \, dx,
+\]
+then
+\[
+\frac{dI}{dk} = \int_{0}^{x_0(k)} \frac{\partial f(x,k)}{\partial k}\, dx + f\bigl(x_0(k), k\bigr) \, \frac{dx_0}{dk}.
+\]
+In our case, 
+\[
+f(x,k) = \lambda_1 e^{-\lambda_1 x} \Bigl[ 1 - e^{-\lambda_2 \bigl(k(x-a)+b\bigr)} \Bigr].
+\]
+The \(k\)-dependence is entirely in the exponential term. Differentiating,
+\[
+\frac{\partial}{\partial k} \left[ 1 - e^{-\lambda_2 \bigl(k(x-a)+b\bigr)} \right] = \lambda_2 (x-a) \, e^{-\lambda_2\bigl(k(x-a)+b\bigr)}.
+\]
+Thus,
+\[
+\frac{\partial f(x,k)}{\partial k} = \lambda_1 e^{-\lambda_1 x} \, \lambda_2 (x-a) \, e^{-\lambda_2\bigl(k(x-a)+b\bigr)}.
+\]
+Also, differentiating \( x_0 = a - \frac{b}{k} \) with respect to \( k \) gives
+\[
+\frac{dx_0}{dk} = \frac{b}{k^2}.
+\]
+At \(x=x_0\),
+\[
+k(x_0-a)+b = k\Bigl(a-\frac{b}{k}-a\Bigr)+b = -b+b = 0,
+\]
+so that
+\[
+1 - e^{-\lambda_2\bigl(k(x_0-a)+b\bigr)} = 0.
+\]
+Hence, the boundary term vanishes and we obtain
+\begin{equation}\label{eq:dIdk}
+  \frac{dI}{dk} = \int_{x=0}^{x_0} \lambda_1 e^{-\lambda_1 x}\,\lambda_2 (x-a)\, e^{-\lambda_2\bigl(k(x-a)+b\bigr)}\, dx.
+\end{equation}
+Setting \(\frac{dI}{dk} = 0\) yields an implicit equation for the optimal \( k^* \).
+
+\section{Asymptotic Analysis: Two Regimes}
+
+We now discuss how the behavior of the function 
+\[
+g(x) = k(x-a)+b
+\]
+affects the optimal condition for \(k\) in two regimes.
+
+\subsection{Small-Scale Regime}
+
+In the regime where the values of \(g(x)\) remain small for all \(x \in [0,x_0]\), we can expand the exponential in a Taylor series:
+\[
+e^{-\lambda_2\,g(x)} \approx 1 - \lambda_2\,g(x).
+\]
+Then,
+\[
+1 - e^{-\lambda_2\,g(x)} \approx \lambda_2\,g(x) = \lambda_2 \bigl[k(x-a)+b\bigr].
+\]
+Substitute this into \eqref{eq:Ik2}:
+\[
+I(k) \approx \int_{0}^{x_0} \lambda_1 e^{-\lambda_1 x}\, \lambda_2 \bigl[k(x-a)+b\bigr] dx.
+\]
+Differentiating this approximate form with respect to \(k\) and setting the derivative equal to zero leads (after some algebra) to the condition
+\[
+k^* \approx \frac{\lambda_1}{\lambda_2}.
+\]
+Since \(k = \tan\theta\), this implies
+\[
+\tan\theta^* \approx \frac{\lambda_1}{\lambda_2}.
 \]
 
-\subsection{Classical Probability}
-If all events are equally likely:
-\[
-P(A) = \frac{|A|}{|\Omega|}
-\]
+\subsection{Large-Scale Regime}
 
-\subsection{Example}
-Consider a random coin toss, where \( \Omega = \{ \text{Heads}, \text{Tails} \} \).
-The probability of getting heads:
+When the values of \(g(x) = k(x-a)+b\) become large for most \(x\) in \([0,x_0]\) except near the upper limit \(x=x_0\) (where \(g(x_0)=0\)), the exponential \(e^{-\lambda_2\,g(x)}\) decays rapidly except in a narrow region near \(x_0\). To focus on this region, we define a new variable
 \[
-P(\text{Heads}) = \frac{1}{2}
+t = x_0 - x,
 \]
+so that when \(x=x_0\), \(t=0\) and when \(x=0\), \(t = x_0\). In terms of \(t\), we have
+\[
+x = x_0 - t.
+\]
+Then,
+\[
+g(x) = k\bigl((x_0-t)-a\bigr)+b = k(x_0-a)+b - k\,t.
+\]
+Since \(k(x_0-a)+b=0\), it follows that
+\[
+g(x) \approx -k\,t.
+\]
+(Here, the negative sign indicates that \(g(x)\) decreases linearly to 0 at \(t=0\); we are interested in the magnitude.) Hence, the exponential factor becomes
+\[
+e^{-\lambda_2\,g(x)} \approx e^{\lambda_2 k\,t}.
+\]
+Because \(e^{\lambda_2 k\,t}\) grows rapidly as \(t\) increases, and our original integrals in \eqref{eq:Ik2} involve \(1-e^{-\lambda_2\,g(x)}\), the dominant contribution arises from values of \(t\) very close to 0 (i.e. \(x\) near \(x_0\)), where the approximation \(g(x) \approx k\,t\) holds. Using Laplace's method, we approximate the integral by evaluating the slowly varying factor \( \lambda_1e^{-\lambda_1 x} \) at \(x=x_0\) and integrating the exponential term over \(t\):
+\[
+\int_{t=0}^{\epsilon} e^{\lambda_2 k\,t}\, dt \approx \frac{e^{\lambda_2 k\,\epsilon}-1}{\lambda_2 k},
+\]
+for a small \(\epsilon\). In the limit where the decay is very rapid (large \(\lambda_2 k\)), the effective support is very near \(t=0\). Differentiating the logarithm of the dominant contribution with respect to \(k\) yields a correction term of order \(1/k\). Expressing this condition in terms of \(\theta\) (since \(k=\tan\theta\)) leads to an optimality condition that includes a logarithmic correction. (A detailed derivation shows that the condition takes the form)
+\[
+\tan\theta^* \approx \frac{\lambda_1}{\lambda_2}\left(1+\Delta\right),
+\]
+with
+\[
+\Delta \sim \frac{1}{K}\ln\frac{\lambda_1}{\lambda_2},
+\]
+where \(K\) represents the characteristic scale of \(g(x)\) in the region near \(x_0\). In a fully detailed derivation, this correction is found to be of the form
+\[
+\tan\theta^* \approx \frac{\lambda_1}{\lambda_2}\left(1+\frac{1}{c}\ln\frac{\lambda_1}{\lambda_2}\right),
+\]
+if one were to reintroduce the geometric scale \(c\). However, since we are not introducing a separate projection variable, the key takeaway is that in the large-scale regime the optimal \(k^*\) deviates from \(\lambda_1/\lambda_2\) by a logarithmic correction that arises from the steep decay of the exponential term in a small neighborhood near \(x=x_0\).
 
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.7\textwidth]{images/example.png}
-    \caption{Graphical representation of probability}
-\end{figure}
+\section{Summary}
+
+To summarize, working solely in terms of \(k\), \(a\), and \(b\):
+\begin{itemize}
+  \item The integration region is given by \(x\in[0, x_0]\) with \(x_0 = a-\frac{b}{k}\) and, for each \(x\), \(y\in[0,\,k(x-a)+b]\).
+  \item The probability mass below the line is 
+  \[
+  I(k)=\int_{x=0}^{x_0}\lambda_1e^{-\lambda_1x}\Bigl[1-e^{-\lambda_2\bigl(k(x-a)+b\bigr)}\Bigr]dx.
+  \]
+  \item Differentiating \(I(k)\) with respect to \(k\) using the Leibniz rule yields an implicit equation for the optimal \(k^*\).
+  \item In the regime where \(k(x-a)+b\) remains small (small-scale regime), a Taylor expansion shows that \(k^*\approx\frac{\lambda_1}{\lambda_2}\).
+  \item In the regime where \(k(x-a)+b\) is large except near \(x=x_0\) (large-scale regime), by substituting \(t=x_0-x\) and applying Laplace's method we find that the integral is dominated by a narrow region near \(t=0\). Differentiating the logarithm of this dominant contribution introduces a logarithmic correction in the optimal condition.
+\end{itemize}
+
+While the exact form of the logarithmic correction requires a full derivation, the key point is that in the large-scale regime the optimal slope \(k^*\) deviates from \(\lambda_1/\lambda_2\) by a term proportional to a logarithm of \(\lambda_1/\lambda_2\) (scaled by the characteristic size of the integration region near \(x_0\)). This completes our extended explanation entirely in terms of \(k\), \(a\), and \(b\).

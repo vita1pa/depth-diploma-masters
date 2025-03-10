@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (MiKTeX 24.1) (preloaded format=xelatex 2025.2.19)  19 FEB 2025 16:46
+This is XeTeX, Version 3.141592653-2.6-0.999995 (MiKTeX 24.1) (preloaded format=xelatex 2025.2.19)  11 MAR 2025 00:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -116,7 +116,18 @@ LaTeX Info: Redefining \Relbar on input line 971.
 LaTeX Info: Redefining \[ on input line 2953.
 LaTeX Info: Redefining \] on input line 2954.
 )
-(C:\Users\vital\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.sty
+(C:\Users\vital\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+
+(C:\Users\vital\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+)) (C:\Users\vital\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.st
+y
 Package: geometry 2020/01/02 v5.9 Page Geometry
 
 (C:\Users\vital\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifvtex.sty
@@ -151,28 +162,28 @@ File: l3backend-xetex.def 2024-01-04 L3 backend support: XeTeX
 ) (c:\Users\vital\Documents\depth\out\main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 10.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 12.
 LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 1
-0.
+2.
 
 (C:\Users\vital\AppData\Local\Programs\MiKTeX\tex/latex/base\ts1cmr.fd
 File: ts1cmr.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
@@ -208,30 +219,54 @@ LaTeX Font Info:    ... okay on input line 10.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-(c:\Users\vital\Documents\depth\out\main.toc)
+(c:\Users\vital\Documents\depth\out\main.toc
+LaTeX Font Info:    Trying to load font information for U+msa on input line 2.
+
+(C:\Users\vital\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 2.
+
+(C:\Users\vital\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+))
 \tf@toc=\write3
 \openout3 = `main.toc'.
 
- (chapters/chapter1.tex [1
+
+(chapters/bivariate_exponential.tex [1
 
 
 ]
 Chapter 1.
 [2
 
-] [3] [4]) [5] [6] (c:\Users\vital\Documents\depth\out\main.aux)
+] [3]
+File: images/TD_exp1.png Graphic file (type bmp)
+<images/TD_exp1.png>
+File: images/TD_v5.png Graphic file (type bmp)
+<images/TD_v5.png>
+File: images/TD_v100.png Graphic file (type bmp)
+<images/TD_v100.png>
+) (c:\Users\vital\Documents\depth\out\main.bbl [4] [5]
+
+LaTeX Warning: Empty `thebibliography' environment on input line 3.
+
+) [6
+
+] (c:\Users\vital\Documents\depth\out\main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 2254 strings out of 409616
- 34334 string characters out of 5773992
- 1932191 words of memory out of 5000000
- 24340 multiletter control sequences out of 15000+600000
- 562697 words of font info for 62 fonts, out of 8000000 for 9000
+ 2821 strings out of 409616
+ 41157 string characters out of 5773992
+ 1929191 words of memory out of 5000000
+ 24884 multiletter control sequences out of 15000+600000
+ 565393 words of font info for 75 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 57i,7n,65p,559b,134s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 57i,9n,65p,404b,213s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 Output written on c:\Users\vital\Documents\depth\out\main.pdf (6 pages).

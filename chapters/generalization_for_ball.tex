@@ -1,0 +1,272 @@
+\chapter{Generalizing Tukey Depth in a Uniformly Distributed Unit Ball in \(\mathbb{R}^p\)}
+
+\section{Definition and Notation}
+
+Let \(B^p = \bigl\{\,x \in \mathbb{R}^p : \|x\|\le 1\bigr\}\) be the closed unit ball in \(\mathbb{R}^p\). 
+We assume a \textbf{uniform} (isotropic) probability measure on \(B^p\). 
+Hence, for any measurable \(A \subset B^p\),
+\[
+F(A) \;=\; \frac{\mathrm{Vol}(A)}{\mathrm{Vol}(B^p)},
+\]
+where \(\mathrm{Vol}(\cdot)\) denotes the usual Lebesgue volume in \(p\) dimensions.
+
+\paragraph{Closed Halfspace and Tukey (Halfspace) Depth.}
+For a direction \(u \in S^{p-1}\) (the unit sphere) and a point \(\theta \in \mathbb{R}^p\), define the closed halfspace
+\[
+H(u,\theta) 
+\;=\;
+\bigl\{\,
+x \in \mathbb{R}^p 
+:\;
+\langle x - \theta,\,u\rangle 
+\,\ge\, 
+0
+\bigr\}.
+\]
+Its boundary hyperplane \(\langle x - \theta,\,u\rangle = 0\) passes through \(\theta\). 
+Given a probability measure \(F\) on \(\mathbb{R}^p\), the \emph{Tukey depth} of \(\theta\) is
+\[
+\mathrm{depth}(\theta; F)
+\;=\;
+\inf_{u \in S^{p-1}}\,
+F\bigl(H(u,\theta)\bigr).
+\]
+In the following, we focus on computing \(\mathrm{depth}(\theta;F)\) explicitly when \(F\) is uniform on \(B^p\).
+
+\section{Geometry of Halfspaces in the Ball}
+
+\subsection{Key Observation: Height from the Center}
+
+To illustrate the concept, consider the unit disk \(B^2\) with center \(O\) and a point \(\theta\) in its interior (with \(\|\theta\| < 1\)). The measure of a closed halfspace \(H(u,\theta)\cap B^2\) depends on the perpendicular distance from \(O\) to the hyperplane \(\langle x-\theta,\,u\rangle = 0\). For a given direction \(u \in S^1\) (the unit circle), this distance is
+\[
+d \;=\; |\langle \theta,\,u\rangle|.
+\]
+Among all directions \(u\) that ensure \(\theta\in H(u,\theta)\), the minimal volume of \(H(u,\theta)\cap B^2\) is achieved when \(d\) is maximized. Geometrically, this optimal situation occurs when \(u\) is chosen parallel to the vector from the origin to \(\theta\), i.e.,
+\[
+u \;=\; \frac{\theta}{\|\theta\|}\,.
+\]
+In that case, the boundary hyperplane becomes
+\[
+\langle x,\,\theta\rangle \;=\; \|\theta\|^2,
+\]
+and the associated halfspace is
+\[
+H\!\Bigl(\frac{\theta}{\|\theta\|},\theta\Bigr)
+\;=\;
+\Bigl\{ x \in \mathbb{R}^2 : \langle x,\,\theta\rangle \ge \|\theta\|^2 \Bigr\}\,.
+\]
+The Tukey depth of \(\theta\) is given by the ratio of the area of the cap \(H\!\Bigl(\frac{\theta}{\|\theta\|},\theta\Bigr)\cap B^2\) to the total area of \(B^2\):
+\[
+\mathrm{depth}(\theta;F)
+\;=\;
+\frac{\mathrm{Vol}\Bigl(H\!\Bigl(\frac{\theta}{\|\theta\|},\theta\Bigr)\cap B^2\Bigr)}{\mathrm{Vol}(B^2)}\,.
+\]
+
+\noindent Figure~\ref{fig:tukey-depth-2D} (Figure 1) illustrates this geometry. In the figure, the unit disk is shown with center \(O\) and a point \(\theta\). A family of lines through \(\theta\) is depicted; among these, the dashed line is orthogonal to the vector from \(O\) to \(\theta\) and attains the greatest distance from \(O\). This optimal line determines the smallest cap (in terms of area), and its relative area (with respect to the entire disk) defines the Tukey depth of \(\theta\).
+
+\begin{figure}[ht]
+  \centering
+  % \includegraphics[width=0.4\textwidth]{tukey_depth_2d}
+  \caption{In \(\mathbb{R}^2\), for a point \(\theta\) in the unit disk, the optimal halfspace is determined by the line orthogonal to the vector from the origin \(O\) to \(\theta\). This line maximizes the distance from \(O\) and minimizes the area of the cap cut off from the disk, thereby defining the Tukey depth.}
+  \label{fig:tukey-depth-2D}
+\end{figure}
+
+
+\section{Volume of the Corresponding Spherical Cap}
+
+%--- 1.3.1 CORRECTION ---
+\subsection{Integral Form for the Volume}
+
+Without loss of generality, by rotational symmetry we can align \(\theta\) with the first coordinate axis. 
+Then the condition \(\langle x,\,\theta\rangle \ge \|\theta\|^2\) becomes simply 
+\[
+x_1 \;\ge\; \|\theta\|,
+\]
+where \(x_1\) denotes the first coordinate of \(x\). Consequently,
+\[
+\bigl\{\,x \in B^p : \langle x,\,\theta\rangle \ge \|\theta\|^2\bigr\}
+\;=\;
+\{\,x : \|x\|\le 1,\; x_1 \ge \|\theta\|\}.
+\]
+To find its volume, we slice the unit ball \(\|x\|\le 1\) at each fixed \(r \in [\|\theta\|,1]\). 
+Each slice is a \((p-1)\)-dimensional ball of radius \(\sqrt{1-r^2}\). Hence
+\[
+\mathrm{Vol}\bigl(H(\theta)\cap B^p\bigr)
+\;=\;
+\int_{\|\theta\|}^{1} 
+\mathrm{vol}\bigl(B^{p-1}\bigr)\,\bigl(1-r^2\bigr)^{\tfrac{p-1}{2}}\,dr.
+\]
+
+\subsection{Final Depth Formula}
+
+We start from the expression
+\[
+\mathrm{depth}(\theta;F) 
+\;=\;
+\frac{1}{\mathrm{Vol}(B^p)}
+\int_{\|\theta\|}^{1}
+\mathrm{vol}\bigl(B^{p-1}\bigr)\,\bigl(1 - r^2\bigr)^{\tfrac{p-1}{2}}\,dr,
+\]
+where the total volume of the \(p\)-ball and the \((p-1)\)-ball are given by
+\[
+\mathrm{Vol}(B^p)
+\;=\;
+\frac{\pi^{\tfrac{p}{2}}}{\Gamma\!\Bigl(\tfrac{p}{2}+1\Bigr)}
+\quad\text{and}\quad
+\mathrm{vol}\bigl(B^{p-1}\bigr)
+\;=\;
+\frac{\pi^{\tfrac{p-1}{2}}}{\Gamma\!\Bigl(\tfrac{p-1}{2}+1\Bigr)}.
+\]
+Substituting these expressions into the depth formula, we obtain
+\[
+\mathrm{depth}(\theta;F)
+\;=\;
+\frac{\Gamma\!\Bigl(\tfrac{p}{2}+1\Bigr)}{\pi^{\tfrac{p}{2}}}\,
+\frac{\pi^{\tfrac{p-1}{2}}}{\Gamma\!\Bigl(\tfrac{p-1}{2}+1\Bigr)}
+\int_{\|\theta\|}^{1}
+\bigl(1 - r^2\bigr)^{\tfrac{p-1}{2}}\,dr.
+\]
+This prefactor simplifies to
+\[
+\frac{\Gamma\!\Bigl(\tfrac{p}{2}+1\Bigr)}{\Gamma\!\Bigl(\tfrac{p-1}{2}+1\Bigr)}\,\frac{1}{\pi^{1/2}}.
+\]
+
+To evaluate the integral, we substitute \(u=r^2\) so that \(du=2r\,dr\) and hence
+\[
+dr = \frac{du}{2\sqrt{u}},
+\]
+with the limits of integration changing from \(r=\|\theta\|\) to \(u=\|\theta\|^2\) and from \(r=1\) to \(u=1\). Thus, the integral becomes
+\[
+\int_{\|\theta\|}^{1}
+\bigl(1 - r^2\bigr)^{\tfrac{p-1}{2}}\,dr
+\;=\;
+\frac{1}{2}
+\int_{\|\theta\|^2}^{1}
+u^{-\tfrac{1}{2}}\,\bigl(1 - u\bigr)^{\tfrac{p-1}{2}}\,du.
+\]
+By the definition of the incomplete Beta function,
+\[
+B_{z}(a,b)
+\;=\;
+\int_{0}^{z}
+t^{\,a-1}\,(1-t)^{\,b-1}\,dt,
+\]
+with \(a=\tfrac{1}{2}\) and \(b=\tfrac{p+1}{2}\), the above integral can be written as
+\[
+\int_{\|\theta\|^2}^{1}
+u^{-\tfrac{1}{2}}\,\bigl(1 - u\bigr)^{\tfrac{p-1}{2}}\,du
+\;=\;
+B\!\Bigl(\tfrac{1}{2},\tfrac{p+1}{2}\Bigr)
+-
+B_{\|\theta\|^2}\!\Bigl(\tfrac{1}{2},\tfrac{p+1}{2}\Bigr).
+\]
+Hence,
+\[
+\int_{\|\theta\|}^{1}
+\bigl(1 - r^2\bigr)^{\tfrac{p-1}{2}}\,dr
+\;=\;
+\frac{1}{2}\,
+\Bigl[
+B\!\Bigl(\tfrac{1}{2},\tfrac{p+1}{2}\Bigr)
+-
+B_{\|\theta\|^2}\!\Bigl(\tfrac{1}{2},\tfrac{p+1}{2}\Bigr)
+\Bigr].
+\]
+
+Next, recall the identity that connects the Beta function with Gamma functions:
+\[
+B(a,b)
+\;=\;
+\frac{\Gamma(a)\,\Gamma(b)}{\Gamma(a+b)}.
+\]
+Thus,
+\[
+B\!\Bigl(\tfrac{1}{2},\tfrac{p+1}{2}\Bigr)
+\;=\;
+\frac{\Gamma\!\Bigl(\tfrac{1}{2}\Bigr)\,\Gamma\!\Bigl(\tfrac{p+1}{2}\Bigr)}
+{\Gamma\!\Bigl(\tfrac{p}{2}+1\Bigr)}.
+\]
+The regularized incomplete Beta function is defined as
+\[
+I_{z}(a,b)
+\;=\;
+\frac{B_{z}(a,b)}{B(a,b)}.
+\]
+Combining these relations, we express the integral as
+\[
+\int_{\|\theta\|}^{1}
+\bigl(1 - r^2\bigr)^{\tfrac{p-1}{2}}\,dr
+\;=\;
+\frac{1}{2}\,
+B\!\Bigl(\tfrac{1}{2},\tfrac{p+1}{2}\Bigr)
+\Bigl[
+1 - I_{\|\theta\|^2}\!\Bigl(\tfrac{1}{2},\tfrac{p+1}{2}\Bigr)
+\Bigr].
+\]
+
+Substituting back into the expression for \(\mathrm{depth}(\theta;F)\), we have
+\[
+\mathrm{depth}(\theta;F)
+\;=\;
+\frac{\Gamma\!\Bigl(\tfrac{p}{2}+1\Bigr)}{\Gamma\!\Bigl(\tfrac{p-1}{2}+1\Bigr)}\,
+\frac{1}{\pi^{1/2}}\,
+\cdot
+\frac{1}{2}\,
+B\!\Bigl(\tfrac{1}{2},\tfrac{p+1}{2}\Bigr)
+\Bigl[
+1 - I_{\|\theta\|^2}\!\Bigl(\tfrac{1}{2},\tfrac{p+1}{2}\Bigr)
+\Bigr].
+\]
+Substitute the Beta function in terms of Gamma functions:
+\[
+\frac{1}{2}\,
+B\!\Bigl(\tfrac{1}{2},\tfrac{p+1}{2}\Bigr)
+\;=\;
+\frac{1}{2}\,
+\frac{\Gamma\!\Bigl(\tfrac{1}{2}\Bigr)\,\Gamma\!\Bigl(\tfrac{p+1}{2}\Bigr)}
+{\Gamma\!\Bigl(\tfrac{p}{2}+1\Bigr)}.
+\]
+This cancels with the \(\Gamma\!\Bigl(\tfrac{p}{2}+1\Bigr)\) in the numerator:
+\[
+\mathrm{depth}(\theta;F)
+\;=\;
+\frac{1}{2}\,
+\frac{\Gamma\!\Bigl(\tfrac{1}{2}\Bigr)\,\Gamma\!\Bigl(\tfrac{p+1}{2}\Bigr)}
+{\Gamma\!\Bigl(\tfrac{p-1}{2}+1\Bigr)\,\pi^{1/2}}\,
+\Bigl[
+1 - I_{\|\theta\|^2}\!\Bigl(\tfrac{1}{2},\tfrac{p+1}{2}\Bigr)
+\Bigr].
+\]
+Since \(\Gamma\!\Bigl(\tfrac{1}{2}\Bigr)=\sqrt{\pi}\), we obtain the final closed-form expression:
+\[
+\boxed{
+\mathrm{depth}(\theta;F)
+\;=\;
+\frac{1}{2}\,
+\Bigl[
+1 - I_{\|\theta\|^2}\!\Bigl(\tfrac{1}{2},\tfrac{p+1}{2}\Bigr)
+\Bigr],
+\quad \text{for } \|\theta\|<1.
+}
+\]
+This derivation explicitly shows how the volumes of the \((p-1)\)- and \(p\)-dimensional balls (involving \(\pi\) and \(\Gamma\) functions) combine with the integral expression to yield the regularized incomplete Beta function in the final formula.
+
+
+\subsection{Examples}
+
+\paragraph{One Dimension (\(p=1\)):}  
+In one dimension, the unit ball is the interval \(B^1 = [-1,1]\). For a point \(\theta\in[-1,1]\) (with \(\|\theta\|=|\theta|\)), a halfspace is simply a closed ray. For instance, when \(\theta>0\) the natural choice is the ray
+\[
+H(1,\theta)=\{x \in \mathbb{R}: x\ge \theta\}\,.
+\]
+Its length is \(1-\theta\) while the total length of \([-1,1]\) is 2. Thus the Tukey depth is
+\[
+\mathrm{depth}(\theta;F)
+=\frac{1-\theta}{2}\,,
+\]
+or, more symmetrically,
+\[
+\mathrm{depth}(\theta;F)
+=\frac{1-|\theta|}{2}\,.
+\]
+It is easy to verify that substituting \(p=1\) into the Beta-function expression yields the same result.

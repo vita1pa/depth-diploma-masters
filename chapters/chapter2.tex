@@ -1,0 +1,78 @@
+\chapter{Projection of an Exponential Point and Hypoexponential Distribution}
+
+In this chapter we consider the same joint density 
+\[
+f_{X_1,X_2}(x_1,x_2)=\lambda_1\lambda_2\, e^{-\lambda_1 x_1-\lambda_2 x_2},\quad x_1,x_2\ge0,
+\]
+and analyze the depth of a fixed point \((a,b)\) in \(\mathbb{R}^2\). Here, the random vector is denoted by 
+\[
+\mathbf{X}=(X_1,X_2),
+\]
+and we study the projection of \(\mathbf{X}\) onto an arbitrary direction.
+
+\section{Projection onto a Given Direction and Half-Space Definition}
+
+Let \(u=(\cos\theta,\sin\theta)\) be an arbitrary unit vector. The projection of the random vector \(\mathbf{X}=(X_1,X_2)\) onto \(u\) is given by
+\[
+Z = u^T \mathbf{X} = X_1\cos\theta + X_2\sin\theta.
+\]
+For a fixed point \((a,b)\), its projection is
+\[
+u^T(a,b)=a\cos\theta+b\sin\theta.
+\]
+Define the half-space associated with the direction \(u\) as
+\[
+H(u)=\{x\in\mathbb{R}^2 : \, u^T x \ge u^T(a,b)\}.
+\]
+Then the Tukey depth of \((a,b)\) is defined as
+\[
+D(a,b)=\inf_{u\in S^1}\Bigl\{P\bigl(x\in\mathbb{R}^2: \, u^T x \ge u^T(a,b)\bigr)\Bigr\} 
+= \inf_{u\in S^1}\Bigl\{1-F\bigl(u^T(a,b)\bigr)\Bigr\},
+\]
+where \(F\) is the cumulative distribution function (CDF) of the projection \(Z\).
+
+\section{Projection and the Hypoexponential Distribution}
+
+Since \(X_1\) and \(X_2\) are independent exponential random variables, the projection
+\[
+Z = X_1\cos\theta + X_2\sin\theta
+\]
+can be viewed as a sum of two independent scaled exponentials. Define
+\[
+\mu_1 = \frac{\lambda_1}{\cos\theta} \quad \text{and} \quad \mu_2 = \frac{\lambda_2}{\sin\theta}.
+\]
+If \(\mu_1\neq \mu_2\), then \(Z\) follows a hypoexponential distribution with CDF
+\[
+F(z)= 1 - \frac{\mu_2}{\mu_2-\mu_1}\,e^{-\mu_1z} + \frac{\mu_1}{\mu_2-\mu_1}\,e^{-\mu_2z}, \quad z\ge0.
+\]
+In the special case when \(\mu_1=\mu_2=\mu\) (which occurs if \(\lambda_1\sin\theta=\lambda_2\cos\theta\)), the CDF becomes
+\[
+F(z)= 1 - (1+\mu z)e^{-\mu z}.
+\]
+Thus, the probability that \(\mathbf{X}\) falls in the half-space is
+\[
+P\{u^T \mathbf{X}\ge u^T(a,b)\} = 1 - F\bigl(u^T(a,b)\bigr),
+\]
+and the depth is
+\[
+D(a,b)= \inf_{u\in S^1}\Bigl\{ 1-F\bigl(a\cos\theta+b\sin\theta\bigr)\Bigr\}.
+\]
+
+\section{Summary and Optimization Approach}
+
+The key idea is that the projection \(Z = X_1\cos\theta+X_2\sin\theta\) follows a hypoexponential distribution (with the special case \(\mu_1=\mu_2\) considered separately). Consequently, the probability mass in the half-space determined by \(u\) is 
+\[
+1-F\bigl(a\cos\theta+b\sin\theta\bigr),
+\]
+and the Tukey depth of \((a,b)\) is obtained by taking the infimum of this expression over all directions \(u\) (or equivalently, over \(\theta\)). In practice, one may evaluate
+\[
+1-F\bigl(a\cos\theta+b\sin\theta\bigr)
+\]
+explicitly using the hypoexponential CDF formulas provided above and then use numerical methods (such as grid search or optimization routines) to find
+\[
+D(a,b)= \inf_{\theta\in[0,2\pi)}\Bigl\{1-F\bigl(a\cos\theta+b\sin\theta\bigr)\Bigr\}.
+\]
+
+This formulation reduces the multidimensional depth problem to a one-dimensional optimization problem involving the hypoexponential CDF.
+
+% End of chapter2.tex

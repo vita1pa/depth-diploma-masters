@@ -7,7 +7,7 @@
                 "-synctex=1",
                 "-interaction=nonstopmode",
                 "-output-directory=out",
-                "main.tex"
+                "%DOCFILE%"
             ]
         },
         {
@@ -17,7 +17,7 @@
                 "-synctex=1",
                 "-interaction=nonstopmode",
                 "-output-directory=out",
-                "main.tex"
+                "%DOCFILE%"
             ]
         }
     ],

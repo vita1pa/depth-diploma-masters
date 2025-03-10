@@ -87,7 +87,7 @@ def compute_contour(
 # Streamlit App Layout
 # =========================================
 
-st.title("Tukey Depth Interactive Visualization (Localhost)")
+st.title("Tukey Depth Interactive Visualization")
 
 # Sidebar inputs
 st.sidebar.header("Input Parameters")

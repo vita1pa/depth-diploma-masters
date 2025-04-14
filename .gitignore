@@ -10,3 +10,4 @@
 out/    # Ignore the entire output directory
 
 /.ipynb*
+/.vscode

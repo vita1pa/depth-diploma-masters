@@ -8,3 +8,5 @@
 *.dvi  # If you generate DVI files
 *.pdf  # If you don't want to track PDFs (usually a good idea)
 out/    # Ignore the entire output directory
+
+/.ipynb*

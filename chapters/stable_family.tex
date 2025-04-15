@@ -154,7 +154,7 @@ For illustration, consider two scenarios:
   \]
 \end{itemize}
 
-Figure~\ref{fig:depth_08} shows the depth contours for \(\alpha=0.8\) and Figure~\ref{fig:depth_13} illustrates the contours for \(\alpha=1.3\). Notice that for \(\alpha>1\) the contours are given by the \(L^\beta\)-norm and tend to be rounder, while for \(\alpha<1\) the depth depends solely on the larger coordinate, leading to more “degenerate” contour shapes.
+Figure~\ref{fig:depth_contours} shows the depth contours for \(\alpha=0.8\) and \(\alpha=1.3\). Notice that for \(\alpha>1\) the contours are given by the \(L^\beta\)-norm and tend to be rounder, while for \(\alpha<1\) the depth depends solely on the larger coordinate, leading to more “degenerate” contour shapes.
 
 These examples also "prove" that our formulation is consistent with classical cases: for \(\alpha=1\) (the Cauchy case) one obtains \(s_{\max}=\max\{u,v\}\) and a tail probability of
 \[
@@ -166,19 +166,83 @@ s_{\max}=\sqrt{u^2+v^2},
 \]
 which is the familiar Euclidean norm. These special cases along with the contour plots vividly illustrate the rich geometric behavior of the depth function as \(\alpha\) varies.
 
-\begin{figure}[htbp]\
-    \centering
-    \includegraphics[width=\linewidth]{depth_08.png}
-    \caption{Depth contours for $\alpha=0.8$.}
-    \label{fig:depth_08}
-  \end{figure}
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.5\textwidth]{depth_08.png}%
+  \hfill
+  \includegraphics[width=0.5\textwidth]{depth_13.png}
+  \caption{Depth contours for different values of $\alpha$.}
+  \label{fig:depth_contours}
+\end{figure}
 
-  \begin{figure}[htbp]
-    \centering
-    \includegraphics[width=\linewidth]{depth_13.png}
-    \caption{Depth contours for $\alpha=1.3$.}
-    \label{fig:depth_13}
-  \end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Section: Optimal Directional Threshold in \boldmath$d$ Dimensions
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Optimal Directional Threshold in $d$ Dimensions}
+
+Let $\mathbf X=(X_1,\dots,X_d)$ be a random vector with i.i.d.\ components
+$X_i\sim S_\alpha(0,1,0)$, and fix a unit direction
+$\mathbf u=(u_1,\dots,u_d)$, $\|\mathbf u\|_2=1$.  
+For any weight vector $\mathbf a=(a_1,\dots,a_d)\neq\mathbf 0$ define the
+\emph{directional threshold}
+\[
+c(\mathbf a)=
+\frac{\displaystyle\sum_{i=1}^d a_i u_i}
+     {\bigl(\sum_{i=1}^d |a_i|^\alpha\bigr)^{1/\alpha}}.
+\]
+Because both numerator and denominator are homogeneous of degree 1,
+we may normalise by imposing
+\[
+\sum_{i=1}^d |a_i|^\alpha = 1.
+\]
+Hence the optimisation problem becomes
+\[
+\max_{\mathbf a}\; \sum_{i=1}^d a_i u_i
+\quad\text{s.t.}\quad \sum_{i=1}^d |a_i|^\alpha = 1.
+\]
+\vspace{-1ex}
+
+\subsection*{Hölder‐inequality solution (\boldmath$\alpha>1$)}
+
+Let $\beta=\dfrac{\alpha}{\alpha-1}$ so that $\tfrac1\alpha+\tfrac1\beta=1$.
+By Hölder,
+\[
+\sum_{i=1}^d a_i u_i
+      \;\le\;
+      \Bigl(\sum_{i=1}^d |a_i|^\alpha\Bigr)^{1/\alpha}
+      \Bigl(\sum_{i=1}^d |u_i|^\beta\Bigr)^{1/\beta}
+      =\|\mathbf u\|_\beta,
+\]
+and equality holds iff
+\[
+|a_i|^\alpha = \frac{|u_i|^\beta}{\displaystyle\sum_{j=1}^d |u_j|^\beta}.
+\]
+Taking the sign of $u_i$ into account, the maximiser is
+\[
+a_i^\star =
+\frac{|u_i|^{\beta-1}\operatorname{sgn}(u_i)}
+     {\bigl(\sum_{j=1}^d |u_j|^\beta\bigr)^{1/\alpha}},
+\qquad i=1,\dots,d,
+\]
+and the optimal value is the $L^\beta$‐norm
+\[
+\boxed{c_{\max}=\|\mathbf u\|_\beta
+       =\Bigl(\sum_{i=1}^d |u_i|^\beta\Bigr)^{1/\beta}}.
+\]
+
+\subsection*{Endpoint solution for \boldmath$0<\alpha\le1$}
+
+When $0<\alpha\le1$ the map $x\mapsto|x|^\alpha$ is convex, so the constraint
+set is a convex body and the objective $\sum a_i u_i$ is linear.  
+By convex‐analysis the maximum occurs at an extreme point, i.e.\ where all but
+one $|a_i|$ are zero.  Consequently
+\[
+\boxed{c_{\max}=\|\mathbf u\|_\infty=\max_{1\le i\le d}|u_i|}.
+\]
+
+\medskip
+These two closed‑form expressions for $c_{\max}$ feed directly into the
+one–dimensional Gil–Pelaez integral that defines the depth in any dimension~$d$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Reference

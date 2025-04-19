@@ -1,0 +1,88 @@
+%%% thesis_ukr.tex %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[10pt,reqno]{amsart}
+\usepackage{cmap}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[ukrainian]{babel}
+\usepackage{indentfirst,textcase}
+\usepackage[a5paper,margin={15mm,15mm}]{geometry}
+
+%%% Підключайте необхідні пакети тут %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{graphicx}
+%%% Помістіть свої локальні означення тут %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\1}{1\mkern-4.5mu\mathrm{l}}
+\newcommand{\set}[1]{\left\{#1\right\}}
+\newcommand{\norm}[2][]{\left\lVert#2\right\rVert_{#1}}
+\DeclareMathOperator{\Prob}{\mathsf{P}}
+
+%%% Означення теоремоподібних оточень %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\theoremstyle{plain}
+\newtheorem{theorem}{Теорема}
+\newtheorem*{theorem*}{Теорема}
+\newtheorem{corollary}{Наслідок}
+\newtheorem*{corollary*}{Наслідок}
+\newtheorem{lemma}{Лема}
+\newtheorem*{lemma*}{Лема}
+\newtheorem{proposition}{Твердження}
+\newtheorem*{proposition*}{Твердження}
+\newtheorem{conjecture}{Гіпотеза}
+\newtheorem*{conjecture*}{Гіпотеза}
+\theoremstyle{definition}
+\newtheorem{definition}{Означення}
+\newtheorem*{definition*}{Означення}
+\newtheorem{example}{Приклад}
+\newtheorem*{example*}{Приклад}
+\theoremstyle{remark}
+\newtheorem{remark}{Зауваження}
+\newtheorem*{remark*}{Зауваження}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\title{Нетривіальні узагальнення глибини Т'юкі для класів розподілів та аналіз рандомізованих апроксимацій}
+
+%%% Інформація про автора
+\author{В.Є.~Панаско}
+\address{КПІ ім. Ігоря Сікорського, Київ, Україна}
+\email{panasko.vitalii@lll.kpi.ua}
+
+%% Не змінюйте ці два рядки!
+\makeatletter\def\and{\unskip,\;\space\ignorespaces}\def\author@andify{\nxandlist{\and}{\and}{\and}}\makeatother
+\maketitle\pagestyle{empty}\thispagestyle{empty}
+
+\textbf{Актуальність.} Глибина Т'юкі є ключовою мірою центральності в багатовимірному аналізі. Точне аналітичне обчислення є складним для багатьох розподілів, що стимулює розвиток теоретичних узагальнень та ефективних чисельних методів, наприклад для однорідного розподілу на одиничній кулі та для стабільної сім'ї розподілів.
+
+\medskip
+
+\textbf{Мета.} Ми розширюємо визначення глибини Т'юкі для двох нетривіальних класів: (i) рівномірний (ізотропний) розподіл на кулі $B^p\subset\R^p$, та (ii) сімейство симетричних $\alpha$-стабільних розподілів. Крім того, аналізуємо рандомізовані алгоритми апроксимації для обчислення глибини у вищих вимірах.
+
+\medskip
+
+\textbf{Основні результати.} У випадку рівномірного розподілу на одиничній кулі ми довели, що для $\theta\in B^p$
+\[
+\mathrm{depth}(\theta)
+=\frac12\bigl[1 - I_{\|\theta\|^2}\bigl(\tfrac12,\tfrac{p+1}2\bigr)\bigr],
+\]
+де $I_z(a,b)$ — регуляризована неповна бета-функція. Для симетричних $\alpha$-стабільних законів у $\R^2$ показали, що оптимальний поріг для напряму задовольняє
+\[
+c_{\max}(u,v)=
+\begin{cases}
+(u^\beta+v^\beta)^{1/\beta}, &\alpha>1,\\
+\max\{u,v\}, &0<\alpha\le1,
+\end{cases}
+\]
+з $\beta=\alpha/(\alpha-1)$. За допомогою чисельних експериментів було знайдено контури Тукі для біваріантних $t$- та експоненційних розподілів, показавши вплив параметрів на геометричний вигляд контурів.
+
+\medskip
+
+\textbf{Подальша робота.} На основі теорії рандомізованих апроксимацій \cite{briend2023quality} буде проведено ґрунтовні обчислювальні дослідження для оцінки похибок апроксимації на проміжних значеннях глибини; крім цього буде порівняно складність алгоритмів і вдосконалено методи для робастного багатовимірного аналізу.
+
+\begin{thebibliography}{9}
+  \bibitem{briend2023quality} S.~Briend, G.~Lugosi, R.I.~Oliveira. \emph{On the quality of randomized approximations of Tukey's depth}. arXiv:2309.05657 (2023).
+\end{thebibliography}
+
+\end{document}

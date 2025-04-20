@@ -1,62 +1,62 @@
-%%% thesis_ukr.tex %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \documentclass[10pt,reqno]{amsart}
 \usepackage{cmap}
 \usepackage[T2A]{fontenc}
 \usepackage[utf8]{inputenc}
-\usepackage[ukrainian]{babel}
+\usepackage[english,ukrainian]{babel}
 \usepackage{indentfirst,textcase}
 \usepackage[a5paper,margin={15mm,15mm}]{geometry}
 
-\usepackage{graphicx}
-\newcommand{\R}{\mathbb{R}}
-\newcommand{\1}{1\mkern-4.5mu\mathrm{l}}
-\newcommand{\set}[1]{\left\{#1\right\}}
-\newcommand{\norm}[2][]{\left\lVert#2\right\rVert_{#1}}
-\DeclareMathOperator{\Prob}{\mathsf{P}}
+\theoremstyle{plain}
+\newtheorem{theorem}{Теорема}
+\newtheorem*{theorem*}{Теорема}
+\newtheorem{corollary}{Наслідок}
+\newtheorem*{corollary*}{Наслідок}
+\newtheorem{lemma}{Лема}
+\newtheorem*{lemma*}{Лема}
+\newtheorem{proposition}{Твердження}
+\newtheorem*{proposition*}{Твердження}
+\newtheorem{conjecture}{Гіпотеза}
+\newtheorem*{conjecture*}{Гіпотеза}
+\theoremstyle{definition}
+\newtheorem{definition}{Означення}
+\newtheorem*{definition*}{Означення}
+\newtheorem{example}{Приклад}
+\newtheorem*{example*}{Приклад}
+\theoremstyle{remark}
+\newtheorem{remark}{Зауваження}
+\newtheorem*{remark*}{Зауваження}
 
 \begin{document}
 
-\title{Нетривіальні узагальнення глибини Т'юкі для класів розподілів та аналіз рандомізованих апроксимацій}
+\title{Глибина Тьюкі деяких багатовимірних імовірнісних розподілів} 
 
-%%% Загальна інформація
-\author{В.Є.~Панаско}
+\author{В.~Є.~Панаско}
 \address{КПІ ім. Ігоря Сікорського, Київ, Україна}
 \email{panasko.vitalii@lll.kpi.ua}
 
 \makeatletter\def\and{\unskip,\;\space\ignorespaces}\def\author@andify{\nxandlist{\and}{\and}{\and}}\makeatother
+
 \maketitle\pagestyle{empty}\thispagestyle{empty}
 
-\textbf{Актуальність.} Глибина Т'юкі є ключовою мірою центральності в багатовимірному аналізі. Точне аналітичне обчислення є складним для багатьох розподілів, що стимулює розвиток теоретичних узагальнень та ефективних чисельних методів, наприклад для однорідного розподілу на одиничній кулі та для стабільної сім'ї розподілів.
-
-\medskip
-
-\textbf{Мета.} Ми розширюємо визначення глибини Т'юкі для двох нетривіальних класів: (i) рівномірний (ізотропний) розподіл на кулі $B^p\subset\R^p$, та (ii) сімейство симетричних $\alpha$-стабільних розподілів. Крім того, аналізуємо рандомізовані алгоритми апроксимації для обчислення глибини у вищих вимірах.
-
-\medskip
-
-\textbf{Основні результати.} У випадку рівномірного розподілу на одиничній кулі ми довели, що для $\theta\in B^p$
+Функція глибини Тьюкі, вперше запропонована в~\cite{tukey1975}, є однією з найвживаніших мір центральності в багатовимірному статистичному аналізі. Для ймовірнісного розподілу~$\mu$ на~$\mathbb{R}^d$ вона визначається як
 \[
-\mathrm{depth}(\theta)
-=\frac12\bigl[1 - I_{\|\theta\|^2}\bigl(\tfrac12,\tfrac{p+1}2\bigr)\bigr],
+D_{\mu}(x) = \inf_{H \ni x} \mu(H),
 \]
-де $I_z(a,b)$ — регуляризована неповна бета-функція. Для симетричних $\alpha$-стабільних законів у $\R^2$ показали, що оптимальний поріг для напряму задовольняє
-\[
-c_{\max}(u,v)=
-\begin{cases}
-(u^\beta+v^\beta)^{1/\beta}, &\alpha>1,\\
-\max\{u,v\}, &0<\alpha\le1,
-\end{cases}
-\]
-з $\beta=\alpha/(\alpha-1)$. За допомогою чисельних експериментів було знайдено контури Тукі для біваріантних $t$- та експоненційних розподілів, показавши вплив параметрів на геометричний вигляд контурів.
+де інфімум береться по всіх замкнених півпросторах $H \subset \mathbb{R}^d$, що містять точку~$x$. Значення~$D_{\mu}(x)$ характеризує ступінь \lq\lq центральності\rq\rq\ або \lq\lq типовості\rq\rq\ точки $x$ відносно розподілу~$\mu$: ця величина набуває найбільших значень в центральній частині розподілу і спадає до нуля при~$\|x\| \to \infty$. Детальний огляд властивостей функції $D_{\mu}$ наведено в \cite{rousseeuw1999}.
 
-\medskip
+Аналітичне обчислення функції глибини Тьюкі, як правило, є складним і можливе лише для окремих класів розподілів. У двовимірному випадку точні вирази відомі для низки розподілів, зокрема наведених у~\cite{rousseeuw1999}. В нашій роботі ми узагальнюємо ці результати на нові класи багатовимірних розподілів: рівномірний розподіл на кулях у~$\mathbb{R}^d$ (що фактично включає також еліпсоїди завдяки аффінній еквіваріантності функції~$D_{\mu}$) та розподіли з незалежними симетричними~$\alpha$-стійкими координатами. Крім того, для деяких інших двовимірних розподілів --- експоненціального та закону Стьюдента з незалежними координатами --- аналітичний опис глибини є недоступним; у цих випадках ми досліджуємо геометрію відповідних верхніх рівневих множин чисельно та вивчаємо вплив параметрів розподілів на форму контурів.
 
-\textbf{Подальша робота.} На основі теорії рандомізованих апроксимацій \cite{briend2023quality} буде проведено ґрунтовні обчислювальні дослідження для оцінки похибок апроксимації на проміжних значеннях глибини; крім цього буде порівняно складність алгоритмів і вдосконалено методи для робастного багатовимірного аналізу.
-
-\begin{thebibliography}{9}
-  \bibitem{briend2023quality} S.~Briend, G.~Lugosi, R.I.~Oliveira. \emph{On the quality of randomized approximations of Tukey's depth}. arXiv:2309.05657 (2023).
+\begin{thebibliography}{99}
+	
+	\bibitem{tukey1975}
+	Tukey, J.\ W.\ (1975).
+	\textit{Mathematics and the picturing of data}.
+	In: \textit{Proceedings of the International Congress of Mathematicians} (Vancouver, 1974), vol. 2, pp.~523--531.
+	
+	\bibitem{rousseeuw1999}
+	Rousseeuw, P.\ J., Ruts, I.\ (1999).
+	\textit{The depth function of a population distribution}.
+	\textit{Metrika}, \textbf{49}, 213--244.
+	
 \end{thebibliography}
-
 \end{document}
